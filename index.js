@@ -21,6 +21,8 @@ class Airplane {
   }
 }
 
+
+
 /*
 // 👇 COMPLETE YOUR WORK BELOW 👇
 // 👇 COMPLETE YOUR WORK BELOW 👇
@@ -40,9 +42,37 @@ class Airplane {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-class Person {
+class Person { // open person class
+  constructor(name, age){
+    //constructor ' initialies opens establish name, age, stomach empty array
+    this.name = name;
+    this.age = age;
+    this.stomach = []
+    //closes constructor
+  }
 
+  //methods
+  eat(someFood) {
+    if (this.stomach.length <10)
+    this.stomach.push(someFood);
+  }
+  poop() {
+    this.stomach = [];
+  }
+  toString() {
+    return `${this.name}, $(this.age)`;
+  }
 }
+
+//object for person class
+const p1 = new Person({
+  name: "Sean",
+  age:46,
+});
+
+console.log(p1.name + p1.age);
+
+
 
 /*
   TASK 2
@@ -59,8 +89,15 @@ class Person {
 */
 
 class Car {
-
+  constructor (model,mpg){
+    this.model = model;
+    this.milesPerGallon = mpg;
+    this.tank = 0;
+    this.odometer = 0
+  }
 }
+
+
 
 /*
   TASK 3
@@ -75,7 +112,14 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
+  constructor(name, age, location){
+    this.name = name;
+    this.age = age;
+    this.location = location;
+  }
+  speak() {
 
+  }
 }
 
 /*
@@ -128,7 +172,19 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+class ProjectManager extends Instructor{
+
+  constructor (attr){
+    super(attr);
+    this.gradClassName = attr.gradClassName;
+    this.favInstructor = attr.favInstructor;
+  }
+  standUp(Channel){
+    return `${this.name} announces to ${channel}, at ${channel} standy times!`;
+  }
+  debugsCode(student, subj) {
+    return `${this.name} debugs ${student.name}'s code on ${subj}`;
+  }
 
 }
 
